@@ -1,0 +1,4 @@
+function generarPDF(){
+    window.print();
+
+  }

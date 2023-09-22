@@ -1,0 +1,72 @@
+.left {
+    text-align: left;
+}
+.contenedor{
+  text-align: center;
+  width: 50;
+}
+.btn-dark{
+  font-size: 12pt;
+  text-align: center;
+  
+}
+.rigth{
+    text-align: right;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.region {   
+    font-size: 17pt;   
+    font-family : arial;   
+    text-align: center;
+ }
+
+ .select{   
+  font-size: 17pt;   
+  font-family : arial;   
+  text-align: center;
+}
+ 
+.texto{
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+.Regional{
+    position: absolute;
+    top: 6vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    font-size: 3rem;
+    
+}
+.Municipal{
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+
+
+  .beige-background1 {
+    background-color: rgb(251, 255, 165);
+  }
+  .beige-background2 {
+    background-color: rgb(255, 255, 255);
+  }
+  .beige-background3 {
+    background-color: rgb(255, 255, 255);
+  }
+  .img-transparente{
+    opacity: 0.50;
+  }

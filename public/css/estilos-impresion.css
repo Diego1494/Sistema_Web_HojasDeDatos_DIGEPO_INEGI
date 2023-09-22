@@ -1,0 +1,19 @@
+@media print {
+    header, footer, aside, nav, form, iframe, .menu, .hero, .adslot, .navbar-expand-lg, .navbar-dark, .bg-dark, .btn-dark {
+        display: none;
+        size: landscape;
+        
+      }
+      .tabla{
+        bottom: -65%;
+  position: absolute;
+      }
+      .salud {
+        bottom: 10%;
+        padding: 5%;
+  position: left;
+  width: 50px;
+  height: 20px;
+  
+      }
+    }
