@@ -18,14 +18,14 @@ class AdminController extends Controller
         return view('Admin.Archivos', compact('vivienda'));
     }
 
-    public function importar(){
+    public function importarVivienda(){
         Excel::import(new ViviendaImport,request()->file('documento'));
         return back();
     }
 
-    public function exportar() 
+    public function exportarVivienda() 
     {
-        return Excel::download(new ViviendaExport, 'nuevo.csv');
+        return Excel::download(new ViviendaExport, 'vivienda.csv');
         
     }
 

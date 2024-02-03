@@ -29,10 +29,10 @@
                         <x-dropdown-link href="{{ route('dashboard') }}">
                         {{ __('Inicio') }}
                         </x-dropdown-link>
-                        <form action="">
+                        <form action="{{ route('Educacion') }}">
                        @csrf
                         
-                    <x-dropdown-link href="">
+                    <x-dropdown-link href="{{ route('Educacion') }}">
                                 {{ __('Educacion Archivos') }}
                             </x-dropdown-link>
 
@@ -45,10 +45,10 @@
                             </x-dropdown-link>
 
                             </form>
-                            <form action="">
+                            <form action="{{ route('PoblacionProyecciones') }}">
                        @csrf
                         
-                    <x-dropdown-link href="">
+                    <x-dropdown-link href="{{ route('PoblacionProyecciones') }}">
                                 {{ __('Poblacion Proyecciones Archivos') }}
                             </x-dropdown-link>
 
@@ -61,18 +61,18 @@
                             </x-dropdown-link>
 
                             </form>
-                            <form action="">
+                            <form action="{{ route('Salud') }}">
                        @csrf
                         
-                    <x-dropdown-link href="">
+                    <x-dropdown-link href="{{ route('Salud') }}">
                                 {{ __('Salud Archivos') }}
                             </x-dropdown-link>
 
                             </form>
-                            <form action="">
+                            <form action="{{ route('Tics') }}">
                        @csrf
                         
-                    <x-dropdown-link href="">
+                    <x-dropdown-link href="{{ route('Tics') }}">
                                 {{ __('Tic Archivos') }}
                             </x-dropdown-link>
 

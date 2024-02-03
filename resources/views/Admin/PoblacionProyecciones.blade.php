@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Trabajo Archivos</title>
+    <title>Poblacion Proyecciones Archivos</title>
 </head>
 <body>
 <x-app-layout>
@@ -28,22 +28,30 @@
 <table class="table table-bordered mt-3">
                 <tr>
                     <th colspan="3">
-                        Trabajo
-                        <a class="btn btn-danger float-end" href="{{ route('exportarTr') }}">Exportar</a>
+                        Poblacion Proyecciones
+                        <a class="btn btn-danger float-end" href="{{ route('exportarPY') }}">Exportar</a>
                     </th>
                 </tr>
                 <tr>
-                    <th>cve_geo</th>
-                    <th>sexo</th>
-                    <th>gpo_edad</th>
-                    <th>total_eco_activa</th>
+                    <th>cvegeo</th>
+                    <th>ph2016</th>
+                    <th>pm2016</th>
+                    <th>pt2016</th>
+                    <th>ph2022</th>
+                    <th>pm2022</th>
+                    <th>pt2022</th>
+		
                 </tr>
-                @foreach($trabajo as $trabajos)
+                @foreach($poblacionproyecciones as $poys)
                 <tr>
-                    <td>{{ $trabajos->cve_geo }}</td>
-                    <td>{{ $trabajos->sexo }}</td>
-                    <td>{{ $trabajos->gpo_edad }}</td>
-                    <td>{{ $trabajos->total_eco_activa }}</td>
+                    <td>{{ $poys->cvegeo }}</td>
+                    <td>{{ $poys->ph2016 }}</td>
+                    <td>{{ $poys->pm2016}}</td>
+                    <td>{{ $poys->pt2016}}</td>
+                    <td>{{ $poys->ph2022 }}</td>
+                    <td>{{ $poys->pm2022}}</td>
+                    <td>{{ $poys->pt2022}}</td>
+                    
                 </tr>
                 @endforeach
             </table>
@@ -55,6 +63,5 @@
 </div>
 
 </x-app-layout>
-
 </body>
 </html>

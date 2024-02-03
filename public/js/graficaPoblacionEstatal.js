@@ -8,7 +8,7 @@ google.charts.load('current', {'packages':['table']});
     //var cvgeo = $('formgraficamunicipal').val;
     $.ajax({
 
-        url: "http://localhost/hojas_de_datos_municipales/public/graficaPoblacionEstatal/",
+        url: "http://localhost/Sistema_Web_HojasDeDatos_DIGEPO_INEGI/public/graficaPoblacionEstatal/",
 
         type: "get",
         //url: "/grafica",

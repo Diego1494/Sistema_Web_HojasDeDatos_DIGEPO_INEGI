@@ -24,4 +24,6 @@ class PoblacionExport implements FromCollection, WithHeadings
 		"hombres",
 		"mujeres"];
     }
+
+    
 }

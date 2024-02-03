@@ -10,6 +10,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TrabajoController;
 use App\Http\Controllers\PoblacionSeleccionadoController;
+use App\Http\Controllers\PoblacionProyeccionesController;
+use App\Http\Controllers\TicsController;
+use App\Http\Controllers\SaludController;
+use App\Http\Controllers\EducacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,19 +107,19 @@ Route::get('destroy/{id}', [HomeController::class, 'destroy'])->name('destroy');
 
 Route::get('archivos',[AdminController::class, 'index'])->name('Archivos');
 
-Route::get('exportar',[AdminController::class, 'exportar'])->name('exportar');
+Route::get('vivienda-csv',[AdminController::class, 'exportarVivienda'])->name('exportarVi');
 
-Route::post('importar', [AdminController::class, 'importar'])->name('importar');
+Route::post('importar', [AdminController::class, 'importarVivienda'])->name('importar');
 
 Route::get('Poblacion',[ProductoController::class, 'index'])->name('Poblacion');
 
-Route::get('exportar',[ProductoController::class, 'exportarPoblacion'])->name('exportar');
+Route::get('poblacion-csv',[ProductoController::class, 'exportarPoblacion'])->name('exportarPO');;
 
 Route::post('importar', [ProductoController::class, 'importarPoblacion'])->name('importar');
 
 Route::get('trabajo',[TrabajoController::class, 'index'])->name('trabajo');
 
-Route::get('exportar',[TrabajoController::class, 'exportar'])->name('exportar');
+Route::get('trabajo-csv',[TrabajoController::class, 'exportar'])->name('exportarTr');
 
 Route::post('importar', [TrabajoController::class, 'importar'])->name('importar');
 
@@ -124,4 +128,30 @@ Route::get('poblacion',[PoblacionSeleccionadoController::class, 'index'])->name(
 Route::get('exportar',[PoblacionSeleccionadoController::class, 'exportar'])->name('exportar');
 
 Route::post('importar', [PoblacionSeleccionadoController::class, 'importar'])->name('importar');
+
+Route::get('PoblacionProyecciones',[PoblacionProyeccionesController::class, 'index'])->name('PoblacionProyecciones');
+
+Route::get('poblacionproyecciones-csv',[PoblacionProyeccionesController::class, 'exportar'])->name('exportarPY');
+
+Route::post('importar', [PoblacionProyeccionesController::class, 'importar'])->name('importar');
+
+Route::get('Tics',[TicsController::class, 'index'])->name('Tics');
+
+Route::get('tics-csv',[TicsController::class, 'exportar'])->name('exportarTic');
+
+Route::post('importar', [TicsController::class, 'importar'])->name('importar');
+
+Route::get('Salud',[SaludController::class, 'index'])->name('Salud');
+
+Route::get('salud-csv',[SaludController::class, 'exportar'])->name('exportarSA');
+
+Route::post('importar', [SaludController::class, 'importar'])->name('importar');
+
+Route::get('Educacion',[EducacionController::class, 'index'])->name('Educacion');
+
+Route::get('educacion-csv',[EducacionController::class, 'exportar'])->name('exportarED');
+
+Route::post('importar', [EducacionController::class, 'importar'])->name('importar');
+
+
 require __DIR__.'/auth.php';

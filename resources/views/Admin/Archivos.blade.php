@@ -30,7 +30,7 @@
                 <tr>
                     <th colspan="3">
                         Vivienda
-                        <a class="btn btn-danger float-end" href="{{ route('exportar') }}">Exportar</a>
+                        <a class="btn btn-danger float-end" href="{{ route('exportarVi') }}">Exportar</a>
                     </th>
                 </tr>
                 <tr>

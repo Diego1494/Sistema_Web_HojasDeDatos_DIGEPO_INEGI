@@ -29,7 +29,7 @@
                 <tr>
                     <th colspan="3">
                         Poblacion
-                        <a class="btn btn-danger float-end" href="{{ route('exportar') }}">Exportar</a>
+                        <a class="btn btn-danger float-end" href="{{ route('exportarPO') }}">Exportar</a>
                     </th>
                 </tr>
                 <tr>

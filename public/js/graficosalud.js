@@ -8,7 +8,7 @@
 		//var cvgeo = $('formgraficamunicipal').val;
 		$.ajax({
 
-			url: "http://localhost/hojas_de_datos_municipales/public/graficaSalud/",
+			url: "http://localhost/Sistema_Web_HojasDeDatos_DIGEPO_INEGI/public/graficaSalud/",
 
 			type: "get",
 			//url: "/grafica",

@@ -8,7 +8,7 @@ google.charts.load('current', {'packages':['corechart']});
     //var cvgeo = $('formgraficamunicipal').val;
     $.ajax({
 
-        url: "http://localhost/hojas_de_datos_municipales/public/graficaTrabajoEstatal/",
+        url: "http://localhost/Sistema_Web_HojasDeDatos_DIGEPO_INEGI/public/graficaTrabajoEstatal/",
 
         type: "get",
         //url: "/grafica",
