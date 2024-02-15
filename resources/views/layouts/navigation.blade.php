@@ -29,10 +29,10 @@
                         <x-dropdown-link href="{{ route('dashboard') }}">
                         {{ __('Inicio') }}
                         </x-dropdown-link>
-                        <form action="{{ route('Educacion') }}">
+                        <form action="{{ route('Admin.Educacion') }}">
                        @csrf
                         
-                    <x-dropdown-link href="{{ route('Educacion') }}">
+                    <x-dropdown-link href="{{ route('Admin.Educacion') }}">
                                 {{ __('Educacion Archivos') }}
                             </x-dropdown-link>
 

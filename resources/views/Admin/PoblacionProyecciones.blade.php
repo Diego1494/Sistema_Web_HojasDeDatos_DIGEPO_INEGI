@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Poblacion Proyecciones Archivos</title>
-</head>
-<body>
-<x-app-layout>
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-        <div class="col-md-6">
-            <div class="row">
-               <form action="{{ route('importar')}}" method="POST" enctype="multipart/form-data">
+   <div class="row">
+        <form action="{{ route('importar')}}" method="POST" enctype="multipart/form-data">
                @csrf
-               <div class="col-md-6">
-                <input type="file" name="documento">
-</div>
-<div class="col-md-6">
-    <button class="btn btn-primary" type="submit">Importar </button>
-</div>
+            <div class="col-md-6">
+                <input type="file" name="documento" id="archivoInput" accept=".csv">
+            </div>
+        </form>
+    </div>
+<button class="btn btn-primary" type="submit">Importar </button>
 
-</form>
+<a class="btn btn-danger float-end" href="{{ route('exportarPY') }}">Exportar</a>
 
-<table class="table table-bordered mt-3">
+<table class="table" id="proyeccion-table">
+            <thead>
                 <tr>
-                    <th colspan="3">
-                        Poblacion Proyecciones
-                        <a class="btn btn-danger float-end" href="{{ route('exportarPY') }}">Exportar</a>
-                    </th>
-                </tr>
-                <tr>
+                    <th>ID</th>
                     <th>cvegeo</th>
                     <th>ph2016</th>
                     <th>pm2016</th>
@@ -40,28 +31,55 @@
                     <th>ph2022</th>
                     <th>pm2022</th>
                     <th>pt2022</th>
-		
                 </tr>
-                @foreach($poblacionproyecciones as $poys)
-                <tr>
-                    <td>{{ $poys->cvegeo }}</td>
-                    <td>{{ $poys->ph2016 }}</td>
-                    <td>{{ $poys->pm2016}}</td>
-                    <td>{{ $poys->pt2016}}</td>
-                    <td>{{ $poys->ph2022 }}</td>
-                    <td>{{ $poys->pm2022}}</td>
-                    <td>{{ $poys->pt2022}}</td>
-                    
-                </tr>
-                @endforeach
-            </table>
-                  </div> 
+            </thead>
+        </table>
 </div>
-        </div>  
-</div>
+@stop
 
-</div>
+@section('css')
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+@stop
 
-</x-app-layout>
-</body>
-</html>
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#proyeccion-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('get.proyeccion.data') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'cvegeo', name: 'cvegeo' },
+                    { data: 'ph2016', name: 'ph2016' },
+                    { data: 'pm2016', name: 'pm2016' },
+                    { data: 'pt2016', name: 'pt2016' },
+                    { data: 'ph2022', name: 'ph2022' },
+                    { data: 'pm2022', name: 'pm2022' },
+                    { data: 'pt2022', name: 'pt2022' },
+                ]
+            });
+        });
+    </script>
+    <script>
+document.getElementById('archivoInput').addEventListener('change', function() {
+    var archivoInput = this;
+    var archivo = archivoInput.files[0];
+
+    if (archivo && archivo.name) {
+        var extension = archivo.name.split('.').pop().toLowerCase();
+        if (extension !== 'csv') {
+            alert('Por favor, seleccione un archivo con extensión CSV.');
+            // Restablecer el valor del input para que el usuario pueda seleccionar otro archivo
+            document.getElementById('formularioImportacion').reset();
+        }
+    }
+});
+</script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https:////cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+@stop

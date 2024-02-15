@@ -105,53 +105,76 @@ Route::post('update/{id}', [HomeController::class, 'update'])->name('update');
 
 Route::get('destroy/{id}', [HomeController::class, 'destroy'])->name('destroy');
 
-Route::get('archivos',[AdminController::class, 'index'])->name('Archivos');
+Route::get('Admin/Vivienda',[AdminController::class, 'index'])->name('Admin.Vivienda');
 
 Route::get('vivienda-csv',[AdminController::class, 'exportarVivienda'])->name('exportarVi');
 
 Route::post('importar', [AdminController::class, 'importarVivienda'])->name('importar');
 
-Route::get('Poblacion',[ProductoController::class, 'index'])->name('Poblacion');
+Route::get('Admin/Poblacion',[ProductoController::class, 'index'])->name('Admin.Poblacion');
 
 Route::get('poblacion-csv',[ProductoController::class, 'exportarPoblacion'])->name('exportarPO');;
 
 Route::post('importar', [ProductoController::class, 'importarPoblacion'])->name('importar');
 
-Route::get('trabajo',[TrabajoController::class, 'index'])->name('trabajo');
+Route::get('Admin/Trabajo',[TrabajoController::class, 'index'])->name('Admin.Trabajo');
 
 Route::get('trabajo-csv',[TrabajoController::class, 'exportar'])->name('exportarTr');
 
 Route::post('importar', [TrabajoController::class, 'importar'])->name('importar');
 
-Route::get('poblacion',[PoblacionSeleccionadoController::class, 'index'])->name('poblacion');
+Route::get('Admin/PoblacionSeleccionado',[PoblacionSeleccionadoController::class, 'index'])->name('Admin.PoblacionSeleccionado');
 
 Route::get('exportar',[PoblacionSeleccionadoController::class, 'exportar'])->name('exportar');
 
 Route::post('importar', [PoblacionSeleccionadoController::class, 'importar'])->name('importar');
 
-Route::get('PoblacionProyecciones',[PoblacionProyeccionesController::class, 'index'])->name('PoblacionProyecciones');
+Route::get('Admin/PoblacionProyecciones',[PoblacionProyeccionesController::class, 'index'])->name('Admin.PoblacionProyecciones');
 
 Route::get('poblacionproyecciones-csv',[PoblacionProyeccionesController::class, 'exportar'])->name('exportarPY');
 
 Route::post('importar', [PoblacionProyeccionesController::class, 'importar'])->name('importar');
 
-Route::get('Tics',[TicsController::class, 'index'])->name('Tics');
+Route::get('Admin/Tics',[TicsController::class, 'index'])->name('Admin.Tics');
 
 Route::get('tics-csv',[TicsController::class, 'exportar'])->name('exportarTic');
 
 Route::post('importar', [TicsController::class, 'importar'])->name('importar');
 
-Route::get('Salud',[SaludController::class, 'index'])->name('Salud');
+Route::get('Admin/Salud',[SaludController::class, 'index'])->name('Admin.Salud');
 
 Route::get('salud-csv',[SaludController::class, 'exportar'])->name('exportarSA');
 
 Route::post('importar', [SaludController::class, 'importar'])->name('importar');
 
-Route::get('Educacion',[EducacionController::class, 'index'])->name('Educacion');
+Route::get('Admin/Educacion',[EducacionController::class, 'index'])->name('Admin.Educacion');
 
 Route::get('educacion-csv',[EducacionController::class, 'exportar'])->name('exportarED');
 
 Route::post('importar', [EducacionController::class, 'importar'])->name('importar');
 
+Route::get('get/educacion/data', [EducacionController::class, 'getEducacionData'])->name('get.educacion.data');
+
+Route::get('get/vivienda/data', [AdminController::class, 'getViviendaData'])->name('get.vivienda.data');
+
+Route::get('get/poblacion/data', [ProductoController::class, 'getPoblacionData'])->name('get.poblacion.data');
+
+Route::get('get/proyeccion/data', [PoblacionProyeccionesController::class, 'getProyeccionData'])->name('get.proyeccion.data');
+
+Route::get('get/seleccionado/data', [PoblacionSeleccionadoController::class, 'getSeleccionadoData'])->name('get.seleccionado.data');
+
+Route::get('get/salud/data', [SaludController::class, 'getSaludData'])->name('get.salud.data');
+
+Route::get('get/tic/data', [TicsController::class, 'getTicData'])->name('get.tic.data');
+
+Route::get('get/trabajo/data', [TrabajoController::class, 'getTrabajoData'])->name('get.trabajo.data');
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

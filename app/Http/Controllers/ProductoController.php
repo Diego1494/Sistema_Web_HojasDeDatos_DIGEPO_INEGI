@@ -17,9 +17,32 @@ class ProductoController extends Controller
         return view('Admin.Poblacion', compact('poblacion'));
 
     }
+
+    public function getPoblacionData(Request $request)
+    {
+        if ($request->ajax()) {
+            $length = $request->input('length');
+            $start = $request->input('start');
+    
+            $query = Poblacion::select('*');
+            $recordsTotal = $query->count();
+    
+            $data = $query->skip($start)->take($length)->get();
+    
+            return response()->json([
+                'data' => $data,
+                'recordsTotal' => $recordsTotal,
+                'recordsFiltered' => $recordsTotal, // Para DataTables, puede ser diferente si aplicas algún filtro
+            ]);
+        }
+    }
     
 
-    public function importarPoblacion(){
+    public function importarPoblacion(Request $request){
+
+        $request->validate([
+            'documento' => 'required|mimes:csv,txt|max:10240', // Tamaño máximo de 10 MB
+        ]);
         Excel::import(new PoblacionImport,request()->file('documento'));
         return back();
     }
